@@ -1,0 +1,83 @@
+body{
+    height: 100vh;
+    background-color: #1400ac;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+p{
+    margin: 0;
+}
+#game-intro{
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.text-window{
+    width:40%;
+    height: 30%;
+    background-color: #febe41;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    border-radius: 50px;
+    color:black;
+    font-size: 24px;
+}
+
+.button{
+    background-color: #ff2500;
+    color:white;
+    padding:1em 3em;
+    border: none;
+    border-radius: 15px;
+    text-transform:uppercase;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.button:hover {
+    background-color: #ff5416; 
+}
+
+.button:active {
+    transform: scale(0.95); 
+    background-color: #1400ac; 
+}
+.button-holder{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#game-container {
+    /* display: flex; */
+    width: 100vw;
+    height: 100vh;
+    padding: 100px 0 0 100px;
+    color: white;
+    text-transform: uppercase;
+    /* justify-content: center; */
+
+    position: relative;
+    background-image: url(../images/bckg-04.png);
+    background-size: cover;
+    animation: slide 8s linear infinite;
+  }
+  
+  #game-screen {
+    /* display: none; */
+    align-content: center;
+    padding: 20px 0px;
+
+  }
+  @keyframes slide {
+    0% {
+      background-position: 1000px 0px;
+    }
+    100% {
+      background-position: -1330px 0px;
+    }
+  }
