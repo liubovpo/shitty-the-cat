@@ -80,3 +80,33 @@ p{
       background-position: -2000px 0px;
     }
   }
+
+  /* -----player---- */
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.bottom-rectangle {
+  width: 280px; 
+  height: 100px; 
+  background-color: #ff2500; 
+  border-radius: 50px;
+}
+
+.middle-rectangle {
+  width: 200px; 
+  height: 100px; 
+  background-color:#ff2500; 
+  border-radius: 50px;
+}
+
+.head {
+  width: 100px; 
+  height: 100px; 
+  background-color: #ff2500; 
+  border-radius: 50%; 
+}

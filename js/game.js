@@ -3,6 +3,7 @@ class Game {
         this.startScreen = document.getElementById('game-intro')
         this.gameScreen = document.getElementById('game-screen')
         // this.gameEndScreen = document.getElementById('game-end')
+        this.player = new Player(this.gameScreen,7,50)
     }
     start(){
         this.startScreen.style.display = "none"

@@ -12,4 +12,20 @@ window.onload = function () {
       game = new Game();
       game.start();
     }
+
+    document.addEventListener('keydown', event => {
+      // console.log('key', event)
+      if (event.code === 'Space') {
+        console.log('Jumping...');
+          game.player.jump();
+      }
+    })
+
+    window.addEventListener('keyup', event => {
+      console.log('key', event)
+      if (event.code === 'Space') { 
+        console.log('Falling...');
+        game.player.fall();
+      }
+    });
 }
