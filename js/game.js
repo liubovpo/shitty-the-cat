@@ -16,6 +16,7 @@ class Game {
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "block"
         this.gameLoop()
+        this.food.increaseSpeed()
     }
     gameLoop(){
         this.update()
@@ -38,6 +39,7 @@ class Game {
       
         document.getElementById('score').innerText = this.score
         document.getElementById('final-score').innerText = this.score
+        document.getElementById('level').innerText = this.food.levelNum
 
         if (this.gameOver) {
             this.gameScreen.style.display = 'none'

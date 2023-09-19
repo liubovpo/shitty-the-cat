@@ -50,5 +50,5 @@ window.onload = function () {
     // game.food.element.remove()
     // startGame();
     location.reload(); 
-});
+  });
 }

@@ -68,8 +68,8 @@ p{
     /* justify-content: center; */
     position: relative;
     background-image: url(../images/bckg-04.png);
-    background-size: auto;
-    animation: slide 6s linear infinite;
+    background-size:auto;
+    animation: slide 40s linear infinite;
   }
   #instructions-image{
     position: fixed;
@@ -84,7 +84,7 @@ p{
       background-position: 0px 0px;
     }
     100% {
-      background-position: -2000px 0px;
+      background-position: -13661px 0px;
     }
   }
 

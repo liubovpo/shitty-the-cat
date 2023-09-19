@@ -3,7 +3,6 @@ class Player {
         this.gameScreen = gameScreen; 
         this.left = left; 
         this.bottom = 20; 
-        // this.directionY = 0;
         this.jumpHeight = 20; 
         this.jumpSpeed = 1.5; 
         this.isJumping = false;
@@ -71,7 +70,7 @@ class Player {
     detectSpacePressed() {
         this.jumpTimer = setTimeout(() => {
             this.fall();
-        }, 300); // Adjust the timer duration as needed
+        }, 300);
     }
 
     updatePosition(){
