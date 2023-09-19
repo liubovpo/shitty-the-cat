@@ -7,6 +7,7 @@ class Player {
         this.jumpHeight = 20; 
         this.jumpSpeed = 1.5; 
         this.isJumping = false;
+        this.jumpTimer = null;
         this.isFalling = false;
         this.gravity = 0.5;
         this.jumpInterval = null;
@@ -39,8 +40,9 @@ class Player {
         }
     }
     fall() {
-        if (!this.isFalling) {
+        if (!this.isFalling) { 
             this.isFalling = true;
+            clearTimeout(this.jumpTimer);
             this.fallInterval = setInterval(() => this.fallStep(), 16); 
         }
     }
@@ -48,7 +50,7 @@ class Player {
         if (this.bottom < 65 ) {
             this.bottom  += this.jumpSpeed;
             this.updatePosition(); 
-            // console.log(this.top)
+            
         } else {
             this.isJumping = false;
             clearInterval(this.jumpInterval); 
@@ -57,12 +59,19 @@ class Player {
     fallStep() {
         if (this.bottom > 20) {
             this.bottom -= this.gravity;
-            // console.log(this.top)
             this.updatePosition();
+            this.isJumping = true;
         } else {
             this.isFalling = false;
+            this.isJumping = false; 
             clearInterval(this.fallInterval); 
         }
+    }
+
+    detectSpacePressed() {
+        this.jumpTimer = setTimeout(() => {
+            this.fall();
+        }, 300); // Adjust the timer duration as needed
     }
 
     updatePosition(){

@@ -22,8 +22,11 @@ window.onload = function () {
     document.addEventListener('keydown', event => {
       // console.log('key', event)
       if (event.code === 'Space') {
-        console.log('Jumping...');
+        if (!game.player.isJumping) { 
+          console.log('Jumping...')
           game.player.jump();
+          game.player.detectSpacePressed();
+        }
       }
     })
 
