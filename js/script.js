@@ -1,6 +1,8 @@
 window.onload = function () {
     const startButton = document.getElementById("start-button");
     const restartButton = document.getElementById("restart-button");
+    const exitButton = document.getElementById("exit-button");
+    const instructionsImage = document.getElementById("instructions-image");
     let game 
   
     startButton.addEventListener("click", () => {
@@ -12,6 +14,9 @@ window.onload = function () {
       console.log("start game");
       game = new Game();
       game.start();
+      setTimeout(() => {
+        instructionsImage.style.display = "none";
+    }, 4000); 
     }
 
     document.addEventListener('keydown', event => {
@@ -35,6 +40,12 @@ window.onload = function () {
       // game.food.element.remove()
       // startGame();
       location.reload(); 
-
   });
+
+  exitButton.addEventListener('click', () => {
+    // game.player.element.remove()
+    // game.food.element.remove()
+    // startGame();
+    location.reload(); 
+});
 }
