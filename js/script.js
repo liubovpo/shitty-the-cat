@@ -1,11 +1,12 @@
 window.onload = function () {
     const startButton = document.getElementById("start-button");
     const restartButton = document.getElementById("restart-button");
-    let game;
+    let game 
   
-    startButton.addEventListener("click", function () {
+    startButton.addEventListener("click", () => {
       startGame();
     });
+
   
     function startGame() {
       console.log("start game");
@@ -28,4 +29,12 @@ window.onload = function () {
         game.player.fall();
       }
     });
+
+    restartButton.addEventListener('click', () => {
+      // game.player.element.remove()
+      // game.food.element.remove()
+      // startGame();
+      location.reload(); 
+
+  });
 }

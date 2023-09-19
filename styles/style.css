@@ -13,6 +13,12 @@ p{
     justify-content: center;
     align-items: center;
 }
+#game-end{
+  display:none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 .text-window{
     width:40%;
     height: 30%;
@@ -65,7 +71,7 @@ p{
     background-size: auto;
     animation: slide 6s linear infinite;
   }
-  
+
   /* #game-screen {
     display: none;
     align-content: center;
@@ -91,22 +97,22 @@ p{
 }
 
 .bottom-rectangle {
-  width: 280px; 
-  height: 100px; 
+  width: 250px; 
+  height: 90px; 
   background-color: #ff2500; 
   border-radius: 50px;
 }
 
 .middle-rectangle {
-  width: 200px; 
-  height: 100px; 
+  width: 180px; 
+  height: 90px; 
   background-color:#ff2500; 
   border-radius: 50px;
 }
 
 .head {
-  width: 100px; 
-  height: 100px; 
+  width: 90px; 
+  height: 90px; 
   background-color: #ff2500; 
   border-radius: 50%; 
 }

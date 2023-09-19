@@ -1,8 +1,8 @@
 class Player {
-    constructor(gameScreen, left, top){
+    constructor(gameScreen, left){
         this.gameScreen = gameScreen; 
         this.left = left; 
-        this.top = top; 
+        this.bottom = 20; 
         // this.directionY = 0;
         this.jumpHeight = 20; 
         this.jumpSpeed = 1.5; 
@@ -27,7 +27,7 @@ class Player {
 
         this.element.style.position = 'absolute'
         this.element.style.left = `${this.left}vw`
-        this.element.style.top = `${this.top}vh`
+        this.element.style.bottom = `${this.bottom}vh`
 
         this.gameScreen.appendChild(this.element);
     }
@@ -45,19 +45,19 @@ class Player {
         }
     }
     jumpStep() {
-        if (this.top > this.jumpHeight) {
-            this.top -= this.jumpSpeed;
+        if (this.bottom < 65 ) {
+            this.bottom  += this.jumpSpeed;
             this.updatePosition(); 
-            console.log(this.top)
+            // console.log(this.top)
         } else {
             this.isJumping = false;
             clearInterval(this.jumpInterval); 
         }
     }
     fallStep() {
-        if (this.top < 50) {
-            this.top += this.gravity;
-            console.log(this.top)
+        if (this.bottom > 20) {
+            this.bottom -= this.gravity;
+            // console.log(this.top)
             this.updatePosition();
         } else {
             this.isFalling = false;
@@ -66,7 +66,21 @@ class Player {
     }
 
     updatePosition(){
-        this.element.style.top = `${this.top}vh`;
+        this.element.style.bottom = `${this.bottom}vh`
     }
-
+    didCollide(food) {
+        const playerRect = this.element.getBoundingClientRect()
+        const foodRect = food.element.getBoundingClientRect()
+    
+        if (
+          playerRect.left < foodRect.right &&
+          playerRect.right > foodRect.left &&
+          playerRect.top < foodRect.bottom &&
+          playerRect.bottom > foodRect.top
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }
 }
