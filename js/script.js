@@ -3,16 +3,17 @@ window.onload = function () {
     const restartButton = document.getElementById("restart-button");
     const exitButton = document.getElementById("exit-button");
     const instructionsImage = document.getElementById("instructions-image");
+    const audioButton = document.getElementById('audio-button')
+
+    let isSoundOn = true;
     let game 
   
     startButton.addEventListener("click", () => {
       startGame();
     });
-
   
     function startGame() {
-      console.log("start game");
-      game = new Game();
+      game = new Game(isSoundOn);
       game.start();
       setTimeout(() => {
         instructionsImage.style.display = "none";
@@ -22,10 +23,11 @@ window.onload = function () {
     document.addEventListener('keydown', event => {
       if (event.code === 'Space') {
         if (!game.player.isJumping) { 
-          console.log('Jumping...')
           game.player.jump();
           game.player.detectSpacePressed();
-          game.jumpingSound.play()
+          if(isSoundOn){
+            game.jumpingSound.play()
+          }
           //jumping-animation
           game.player.middleRectangle.classList.add('jump-animation');
           game.player.middleRectangle.addEventListener('animationend', () => {
@@ -36,9 +38,7 @@ window.onload = function () {
     })
 
     window.addEventListener('keyup', event => {
-      console.log('key', event)
       if (event.code === 'Space') { 
-        console.log('Falling...');
         game.player.fall();
       }
     });
@@ -55,5 +55,22 @@ window.onload = function () {
     // game.food.element.remove()
     // startGame();
     location.reload(); 
+  });
+
+  function toggleSound() {
+    
+    if (isSoundOn) {
+      isSoundOn = false
+      document.getElementById("sound-icon").src = "./images/sound-off.png"
+      audioButton.style.backgroundColor = "#737279"
+    } else {
+      isSoundOn = true
+      document.getElementById("sound-icon").src = "./images/sound-on.png"
+      audioButton.style.backgroundColor = "#ff2500"
+    }
+  }
+
+  audioButton.addEventListener('click', () => {
+    toggleSound();
   });
 }

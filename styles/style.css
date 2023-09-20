@@ -92,6 +92,9 @@ p{
     justify-content: space-around;
     width: 100%;
 }
+#sound-icon{
+  height:28px
+}
 .text-selected{
   color: #1400ac;
 }

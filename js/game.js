@@ -1,5 +1,5 @@
 class Game {
-    constructor(){
+    constructor(isSoundOn){
         this.startScreen = document.getElementById('game-intro')
         this.gameScreen = document.getElementById('game-screen')
         this.gameEndScreen = document.getElementById('game-end')
@@ -13,32 +13,38 @@ class Game {
         this.level = 1
         this.gameOver = false
         this.speedObst = 0.35
+
         this.startSound = new Audio("./sounds/start.mov")
         this.endSound = new Audio("./sounds/end.mov")
         this.eatingSound = new Audio("./sounds/yum.mov")
         this.jumpingSound = new Audio("./sounds/jump.mov")
         this.clickSound = new Audio("./sounds/click.mp3")
+        this.isSoundOn = isSoundOn;
+
         this.increaseOriginalSpeed()
         this.scoreInterval = setInterval(() => {
             this.incrementScore();
         }, 1000);
     }
+
     start(){
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "block"
         this.gameLoop()
-        this.startSound.play()
+        if(this.isSoundOn){
+            this.startSound.play()
+        }
+        
     }
 
     increaseOriginalSpeed(){
         setTimeout(() => {
             if (this.speedObst < 1.3) {
                 this.speedObst += 0.05;
-                // this.gameScreen.style.animationDuration = `${40 - this.speedObst*10}s`
-                console.log(this.level)
             }
             this.increaseOriginalSpeed()
         }, 3000);  
+
         if (this.speedObst >= 0.5 && this.speedObst < 0.75) {
             this.level = 2
         } else if (this.speedObst >= 0.75 && this.speedObst < 1){
@@ -54,7 +60,7 @@ class Game {
         this.score += 1;
     }
 
-    gameLoop(){
+    gameLoop() {
         this.update()
 
         if (this.animateId % 200 === 0) {
@@ -89,7 +95,10 @@ class Game {
         if (this.gameOver) {
             this.gameScreen.style.display = 'none'
             this.gameEndScreen.style.display = 'flex'
-            this.endSound.play()
+            if(this.isSoundOn){
+                this.endSound.play()
+            }
+
             const shakeElement = document.getElementById('game-over-window');
             shakeElement.classList.add('shake-animation');
           
@@ -111,7 +120,9 @@ class Game {
           if (this.player.didCollide(food)) {
             food.element.remove()
             this.score += 5
-            this.eatingSound.play()
+            if(this.isSoundOn){
+                this.eatingSound.play()
+            }  
           }  else {
             nextFoods.push(food)
           }

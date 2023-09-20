@@ -5,14 +5,12 @@ class Food {
         this.bottom = 20
         this.speed = speed
         this.picture = picture
-    //   this.height = height
         this.width = width
         this.element = document.createElement('img')
         this.element.src = this.picture
         this.element.style.position = 'absolute'
         this.element.style.left = `${this.left}vw`
         this.element.style.bottom = `${this.bottom}vh`
-    //   this.element.style.height = `${this.height}em`
         this.element.style.width = `${this.width}em`
         this.increaseSpeed()
         this.gameScreen.appendChild(this.element)
@@ -34,6 +32,5 @@ class Food {
 
     updatePosition() {
         this.left -= this.speed
-        console.log(this.speed)
     }
   }
