@@ -90,6 +90,14 @@ class Game {
             this.gameScreen.style.display = 'none'
             this.gameEndScreen.style.display = 'flex'
             this.endSound.play()
+            const shakeElement = document.getElementById('game-over-window');
+            shakeElement.classList.add('shake-animation');
+          
+            // Remove the shake animation after 1 second
+            setTimeout(() => {
+              shakeElement.classList.remove('shake-animation');
+            }, 1000);
+            
             return
           } else {
             this.animateId = requestAnimationFrame(() => this.gameLoop())

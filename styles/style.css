@@ -19,9 +19,7 @@ p{
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url(../images/bckg-cry.png);
-  background-size:cover;
-  animation: slide-down 15s linear infinite;
+  background-color: #1400ac;
 }
 
 @keyframes slide-down {
@@ -47,6 +45,28 @@ p{
     color:black;
     font-size: 24px;
 }
+/* --- shake game over ---  */
+
+.shake-animation {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10%, 40%, 70%{
+    transform: translate(-10px, -5px);
+  }
+  20%, 50%, 80% {
+    transform: translate(10px, 5px);
+  }
+  30%, 60%, 90% {
+    transform: translate(-10px, 5px);
+  }
+}
+/* ---------------- */
+
 
 .button{
     background-color: #ff2500;
