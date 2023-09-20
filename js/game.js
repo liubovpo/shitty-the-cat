@@ -53,10 +53,19 @@ class Game {
         this.update()
         
         if (this.animateId % 200 === 0) {
+            
+            let imageUrl
+
+            if (Math.random() < 0.5) {
+                imageUrl = "./images/mouse.png";
+            } else {
+                imageUrl = "./images/turkey.png";
+            }
+
             this.foodsArr.push(
               new Food(
                 this.gameScreen,
-                Math.random() * 500 + 100,10,"./images/mouse.png", this.speedObst
+                Math.random() * 500 + 100,10,imageUrl, this.speedObst
               ))     
         }
         if (this.animateId % 250 === 0) {

@@ -4,11 +4,11 @@ class Player {
         this.left = left; 
         this.bottom = 20; 
         this.jumpHeight = 20; 
-        this.jumpSpeed = 1.5; 
+        this.jumpSpeed = 1.8; 
         this.isJumping = false;
         this.jumpTimer = null;
         this.isFalling = false;
-        this.gravity = 0.5;
+        this.gravity = 0.7;
         this.jumpInterval = null;
         this.fallInterval = null; 
 
