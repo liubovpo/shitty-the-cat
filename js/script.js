@@ -25,6 +25,7 @@ window.onload = function () {
           console.log('Jumping...')
           game.player.jump();
           game.player.detectSpacePressed();
+          game.jumpingSound.play()
           //jumping-animation
           game.player.middleRectangle.classList.add('jump-animation');
           game.player.middleRectangle.addEventListener('animationend', () => {

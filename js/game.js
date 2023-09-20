@@ -13,16 +13,21 @@ class Game {
         this.level = 1
         this.gameOver = false
         this.speedObst = 0.35
+        this.startSound = new Audio("./sounds/start.mov")
+        this.endSound = new Audio("./sounds/end.mov")
+        this.eatingSound = new Audio("./sounds/yum.mov")
+        this.jumpingSound = new Audio("./sounds/jump.mov")
+        this.clickSound = new Audio("./sounds/click.mp3")
         this.increaseOriginalSpeed()
         this.scoreInterval = setInterval(() => {
             this.incrementScore();
         }, 1000);
     }
-
     start(){
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "block"
         this.gameLoop()
+        this.startSound.play()
     }
 
     increaseOriginalSpeed(){
@@ -51,9 +56,9 @@ class Game {
 
     gameLoop(){
         this.update()
-        
+
         if (this.animateId % 200 === 0) {
-            
+
             let imageUrl
 
             if (Math.random() < 0.5) {
@@ -84,6 +89,7 @@ class Game {
         if (this.gameOver) {
             this.gameScreen.style.display = 'none'
             this.gameEndScreen.style.display = 'flex'
+            this.endSound.play()
             return
           } else {
             this.animateId = requestAnimationFrame(() => this.gameLoop())
@@ -97,6 +103,7 @@ class Game {
           if (this.player.didCollide(food)) {
             food.element.remove()
             this.score += 5
+            this.eatingSound.play()
           }  else {
             nextFoods.push(food)
           }
