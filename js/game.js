@@ -5,19 +5,42 @@ class Game {
         this.gameEndScreen = document.getElementById('game-end')
         this.player = new Player(this.gameScreen,7)
         this.food = new Food(this.gameScreen,100,10,"./images/mouse.png")
+        // this.food.increaseSpeed()
         this.obstacle = new Food(this.gameScreen,100,10,"./images/thorn.png")
         this.foodsArr =[]
         this.obstacleArr =[]
         this.animateId = 0
         this.score = 0
+        this.level = 1
         this.gameOver = false
+        this.speedObst = 0.35
+        this.increaseOriginalSpeed()
     }
     start(){
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "block"
         this.gameLoop()
-        this.food.increaseSpeed()
     }
+
+    increaseOriginalSpeed(){
+        setTimeout(() => {
+            if (this.speedObst < 1.3) {
+                this.speedObst += 0.05;
+                console.log(this.level)
+            }
+            this.increaseOriginalSpeed()
+        }, 3000);  
+        if (this.speedObst >= 0.5 && this.speedObst < 0.75) {
+            this.level = 2
+        } else if (this.speedObst >= 0.75 && this.speedObst < 1){
+            this.level = 3
+        } else if (this.speedObst >= 1 && this.speedObst < 1.25){
+            this.level = 4
+        } else if (this.speedObst >= 1.25){
+            this.level = 5
+        }
+    }
+
     gameLoop(){
         this.update()
         
@@ -25,7 +48,7 @@ class Game {
             this.foodsArr.push(
               new Food(
                 this.gameScreen,
-                Math.random() * 1000 + 100,10,"./images/mouse.png"
+                Math.random() * 1000 + 100,10,"./images/mouse.png", this.speedObst
               ))     
         }
         if (this.animateId % 300 === 0) {
@@ -33,13 +56,13 @@ class Game {
               this.obstacleArr.push(
                 new Food(
                   this.gameScreen,
-                  Math.random() * 1000 + 100,6,"./images/thorn.png"
+                  Math.random() * 1000 + 100,6,"./images/thorn.png",this.speedObst
                 ))     
         }
       
         document.getElementById('score').innerText = this.score
         document.getElementById('final-score').innerText = this.score
-        document.getElementById('level').innerText = this.food.levelNum
+        document.getElementById('level').innerText = this.level
 
         if (this.gameOver) {
             this.gameScreen.style.display = 'none'
@@ -51,8 +74,6 @@ class Game {
     }
 
     update(){    
-        // this.food.move()
-        // console.log(this.foodsArr)
         const nextFoods = []
         this.foodsArr.forEach(food => {
           food.move()
@@ -77,6 +98,4 @@ class Game {
         })
         this.obstacleArr = nextObst
     }  
-    
-    
 }
