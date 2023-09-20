@@ -69,7 +69,7 @@ p{
     position: relative;
     background-image: url(../images/bckg-04.png);
     background-size:auto;
-    animation: slide 40s linear infinite;
+    animation: slide 35s linear infinite;
   }
   #instructions-image{
     position: fixed;
@@ -197,14 +197,17 @@ p{
   0% {
     transform: rotate(0deg);
   }
-  33%{
+  25%{
     transform: rotate(10deg);
   }
-  66%{
+  50%{
     transform: rotate(0deg);
   }
-  100% {
+  75% {
     transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

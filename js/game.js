@@ -4,9 +4,8 @@ class Game {
         this.gameScreen = document.getElementById('game-screen')
         this.gameEndScreen = document.getElementById('game-end')
         this.player = new Player(this.gameScreen,7)
-        this.food = new Food(this.gameScreen,100,10,"./images/mouse.png")
-        // this.food.increaseSpeed()
-        this.obstacle = new Food(this.gameScreen,100,10,"./images/thorn.png")
+        // this.food = new Food(this.gameScreen,100,10,"./images/mouse.png")
+        // this.obstacle = new Food(this.gameScreen,100,10,"./images/thorn.png")
         this.foodsArr =[]
         this.obstacleArr =[]
         this.animateId = 0
@@ -15,7 +14,11 @@ class Game {
         this.gameOver = false
         this.speedObst = 0.35
         this.increaseOriginalSpeed()
+        this.scoreInterval = setInterval(() => {
+            this.incrementScore();
+        }, 1000);
     }
+
     start(){
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "block"
@@ -26,6 +29,7 @@ class Game {
         setTimeout(() => {
             if (this.speedObst < 1.3) {
                 this.speedObst += 0.05;
+                // this.gameScreen.style.animationDuration = `${40 - this.speedObst*10}s`
                 console.log(this.level)
             }
             this.increaseOriginalSpeed()
@@ -41,6 +45,10 @@ class Game {
         }
     }
 
+    incrementScore() {
+        this.score += 1;
+    }
+
     gameLoop(){
         this.update()
         
@@ -48,15 +56,15 @@ class Game {
             this.foodsArr.push(
               new Food(
                 this.gameScreen,
-                Math.random() * 1000 + 100,10,"./images/mouse.png", this.speedObst
+                Math.random() * 500 + 100,10,"./images/mouse.png", this.speedObst
               ))     
         }
-        if (this.animateId % 300 === 0) {
+        if (this.animateId % 250 === 0) {
 
               this.obstacleArr.push(
                 new Food(
                   this.gameScreen,
-                  Math.random() * 1000 + 100,6,"./images/thorn.png",this.speedObst
+                  Math.random() * 500 + 100,6,"./images/thorn.png",this.speedObst
                 ))     
         }
       
