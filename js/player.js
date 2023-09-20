@@ -81,14 +81,20 @@ class Player {
         const foodRect = food.element.getBoundingClientRect()
     
         if (
-          playerRect.left < foodRect.right &&
-          playerRect.right > foodRect.left &&
-          playerRect.top < foodRect.bottom &&
-          playerRect.bottom > foodRect.top
+            playerRect.left < foodRect.right &&
+            playerRect.right > foodRect.left &&
+            playerRect.top < foodRect.bottom &&
+            playerRect.bottom > foodRect.top
         ) {
-          return true
+            // eating animation
+            this.head.classList.add('jump-animation-head');
+            this.head.addEventListener('animationend', () => {
+                this.head.classList.remove('jump-animation-head');
+            });
+
+            return true
         } else {
-          return false
+            return false
         }
       }
 }

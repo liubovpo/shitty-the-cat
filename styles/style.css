@@ -134,7 +134,7 @@ p{
     transform:rotate(0deg);
   }
   
-  /* -----player---- */
+  /* --- player --- */
 
 .player {
   display: flex;
@@ -156,6 +156,20 @@ p{
   background-color:#ff2500; 
   border-radius: 50px;
 }
+/* --- jump body --- */
+
+.jump-animation {
+  animation: rotateAnimation 1s linear
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
 
 .head {
   width: 90px; 
@@ -163,28 +177,36 @@ p{
   background-color: #ff2500; 
   border-radius: 50%; 
 }
-.head::before,
-.head::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  background-size: cover;
-}
 
 .head::before {
-  width: 90px;
-  height: 72px;
-  left: 10px;
-  background-image: url('../images/w_left.png'); 
+  content: '';
+  position: absolute;
+  top: 30px;
+  background-size: cover;
+  width: 130px;
+  height: 60px;
+  left: 60px;
+  background-image: url('../images/whiskers.png'); 
 }
 
-.head::after {
-  width: 93px;
-  height: 64px;
-  right: 10px;
-  background-image: url('../images/w_right.png'); 
+.jump-animation-head::before {
+  animation: rotateHead 1s linear
 }
 
+@keyframes rotateHead {
+  0% {
+    transform: rotate(0deg);
+  }
+  33%{
+    transform: rotate(10deg);
+  }
+  66%{
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 
 
 

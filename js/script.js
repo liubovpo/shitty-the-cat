@@ -20,12 +20,16 @@ window.onload = function () {
     }
 
     document.addEventListener('keydown', event => {
-      // console.log('key', event)
       if (event.code === 'Space') {
         if (!game.player.isJumping) { 
           console.log('Jumping...')
           game.player.jump();
           game.player.detectSpacePressed();
+          //jumping-animation
+          game.player.middleRectangle.classList.add('jump-animation');
+          game.player.middleRectangle.addEventListener('animationend', () => {
+            game.player.middleRectangle.classList.remove('jump-animation');
+          });
         }
       }
     })
