@@ -4,8 +4,6 @@ class Game {
         this.gameScreen = document.getElementById('game-screen')
         this.gameEndScreen = document.getElementById('game-end')
         this.player = new Player(this.gameScreen,7)
-        // this.food = new Food(this.gameScreen,100,10,"./images/mouse.png")
-        // this.obstacle = new Food(this.gameScreen,100,10,"./images/thorn.png")
         this.foodsArr =[]
         this.obstacleArr =[]
         this.animateId = 0

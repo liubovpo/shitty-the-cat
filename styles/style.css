@@ -39,7 +39,7 @@ p{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 30px;
+    padding: 50px 30px;
     text-align: center;
     border-radius: 50px;
     color:black;
@@ -78,7 +78,9 @@ p{
     cursor: pointer;
     transition: background-color 0.5s ease;
     letter-spacing: 0.1em;
+    margin-top: 50px;
 }
+
 .button:hover {
     background-color: #ff5416; 
 }
@@ -97,6 +99,66 @@ p{
 }
 .text-selected{
   color: #1400ac;
+  text-decoration: underline;
+}
+
+.turkey,
+.mice,
+.thorn {
+  cursor: pointer;
+}
+
+.turkey::before,
+.mice::before {
+  content: "";
+  position: relative;
+  bottom: 100px;
+  left:-15px;
+  display: inline-block;
+  width: 200px; 
+  height: 80px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: -200px; 
+  margin-bottom: -80px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.thorn::before{
+  content: "";
+  position: relative;
+  top: 10px;
+  left:-15px;
+  display: inline-block;
+  width: 200px; 
+  height: 80px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: -200px; 
+  margin-bottom: -80px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.turkey::before {
+  background-image: url('../images/turkey-icon.png');
+}
+
+.mice::before {
+  background-image: url('../images/mice-icon.png');
+}
+
+.thorn::before {
+  background-image: url('../images/thorn-icon.png');
+}
+
+
+.turkey:hover::before,
+.mice:hover::before,
+.thorn:hover::before {
+  opacity: 1;
 }
 
 #game-screen {
