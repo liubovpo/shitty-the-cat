@@ -76,15 +76,15 @@ class Player {
     updatePosition(){
         this.element.style.bottom = `${this.bottom}vh`
     }
-    didCollide(food) {
+    didCollide(obstacle) {
         const playerRect = this.element.getBoundingClientRect()
-        const foodRect = food.element.getBoundingClientRect()
+        const obstacleRect = obstacle.element.getBoundingClientRect()
     
         if (
-            playerRect.left < foodRect.right &&
-            playerRect.right > foodRect.left &&
-            playerRect.top < foodRect.bottom &&
-            playerRect.bottom > foodRect.top
+            playerRect.left < obstacleRect.right &&
+            playerRect.right > obstacleRect.left &&
+            playerRect.top < obstacleRect.bottom &&
+            playerRect.bottom > obstacleRect.top
         ) {
             // eating animation
             this.head.classList.add('jump-animation-head');
