@@ -1,4 +1,4 @@
-# shitty-the-cat
+# Shitty the Cat
 
 [Click here to see deployed game](https://liubovpo.github.io/shitty-the-cat/)
 
