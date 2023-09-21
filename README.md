@@ -19,9 +19,6 @@ Welcome to 'Shitty the Cat,' an exciting and fast-paced adventure where you take
 4. **Food Items:** Collectible food items that appear randomly on the screen and give the player an extra 5 points when collected.
 
 
-This MVP provides a fundamental version of "Shitty the Cat" with the essential features needed to create a playable game. Additional features, such as power-ups, different environments, or advanced animations, can be considered for future iterations or updates based on user feedback and development resources.
-
-
 ## Backlog
 
 - [x] ~~Increasing speed~~: The speed of obstacles currently increases with time and it's represented by the game's level number.
@@ -32,7 +29,7 @@ This MVP provides a fundamental version of "Shitty the Cat" with the essential f
 
 - [x] ~~Simple User Interface and Clear Instructions~~: An intuitive user interface (UI) has been designed and implemented, featuring the display of the player's score, level, exit and sound buttons. Clear instructions have been provided to assist players in understanding the game mechanics.
 
-### To Be Done:
+#### To Be Done:
 
 - [ ] **Different Environments**: Add variety to the game by introducing different environments or backgrounds. Each environment can present unique challenges and aesthetics.
 
@@ -94,15 +91,11 @@ This MVP provides a fundamental version of "Shitty the Cat" with the essential f
 
 
 
-## States y States Transitions
+## States
 
 - Start Screen
 - Game Screen
 - Game Over Screen
-
-
-## Task
-_List of tasks in order of priority_
 
 
 ## Links
