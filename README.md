@@ -100,6 +100,6 @@ Welcome to 'Shitty the Cat,' an exciting and fast-paced adventure where you take
 
 ## Links
 
-- [Slides Link](http://slides.com)
+- [Presentation Link](https://drive.google.com/file/d/1_DhCucRbvDZo448tDPlaGEjkens7VDbJ/view?usp=sharing)
 - [Github repository Link](https://github.com/liubovpo/shitty-the-cat)
 - [Deployment Link](https://liubovpo.github.io/shitty-the-cat/)
